@@ -5,6 +5,7 @@ import os
 import signal
 from PIL import Image, ImageTk
 
+
 class gui:
     def __init__(self): # initialize gui
         self.root = Tk()
@@ -13,7 +14,7 @@ class gui:
         self.root.title('Launcher') # title
         self.root.eval('tk::PlaceWindow . center') # align window to center of screen
 
-        image = Image.open('/home/zeiros/launcher-gui/index.png')
+        image = Image.open('index.png')
         # image = image.resize((150,170), Image.ANTIALIAS)
         img = ImageTk.PhotoImage(image)
 
@@ -66,16 +67,16 @@ class gui:
 
     def calibrate_cb(self): # runs calibration script
         # subprocess.run('python /home/zeiros/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_calib.py', shell=True)
-        subprocess.run('python /home/zeiros/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_calib.py', shell=True)
+        subprocess.run('python /$HOME/MIA/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_calib.py', shell=True)
 
     def set_idle_cb(self): # runs idle script
         # subprocess.run('python /home/zeiros/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_idle_mode.py', shell=True)
-        subprocess.run('python /home/zeiros/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_idle_mode.py', shell=True)
+        subprocess.run('python /$HOME/MIA/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_idle_mode.py', shell=True)
 
     def set_speed_cb(self): # runs set speed script
         data = int(self.speed.get("1.0", "end-1c"))
         # subprocess.run(f'python (PATH) {data}', shell=True)
-        subprocess.run(f'python /home/zeiros/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_test.py {data}', shell=True)
+        subprocess.run(f'python /$HOME/MIA/Robocon_22/robocon_ws/src/control/scripts/odrive/odrive_test.py {data}', shell=True)
 
 g = gui()
 
